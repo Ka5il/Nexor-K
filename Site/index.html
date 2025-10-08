@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexor-K Matrix</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Верхняя панель с соцсетями и лицензией -->
+    <div class="top-bar">
+        <div class="social-links">
+            <a href="#" class="social-link">
+                <i class="fab fa-github"></i>
+                GitHub
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-telegram"></i>
+                Telegram
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-twitter"></i>
+                Twitter
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-discord"></i>
+                Discord
+            </a>
+        </div>
+        <div class="license-info">
+            <span>GNU License © 2025 Nexor-K</span>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="nexor-text">NEXOR-K</div>
+    <div class="download-section">
+    <button class="download-btn" onclick="window.location.href='download/index.html'">
+        <span class="btn-text">DOWNLOAD</span>
+        <span class="btn-version">v0.0</span>
+    </button>
+</div>
+    <div id="matrix-container">
+        <canvas id="matrix"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

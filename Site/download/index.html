@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скачать файл</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            color: rgba(255, 0, 0, 0.70);
+            font-family: 'JetBrains Mono', monospace;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Эффект матрицы на заднем плане */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #f00;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            color: rgba(255, 0, 0, 0.70);
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .download-card {
+            background-color: rgba(10, 0, 0, 0.9);
+            border: 1px solid rgba(255, 0, 0, 0.30);
+            border-radius: 4px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.10);
+            transition: all 0.3s ease;
+        }
+
+        .download-card:hover {
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.20);
+            border-color: rgba(255, 0, 0, 0.50);
+        }
+
+        .file-info {
+            margin-bottom: 2rem;
+        }
+
+        .file-name {
+            font-size: 1.2rem;
+            color: #f00;
+            margin-bottom: 0.5rem;
+        }
+
+        .file-details {
+            color: rgba(255, 0, 0, 0.70);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .file-size {
+            color: rgba(255, 0, 0, 0.70);
+            font-size: 0.9rem;
+        }
+
+        .download-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background-color: transparent;
+            color: #f00;
+            border: 1px solid #f00;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn:hover {
+            background-color: rgba(255, 0, 0, 0.20);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.30);
+        }
+
+        .download-btn:active {
+            background-color: rgba(255, 0, 0, 0.30);
+        }
+
+        .download-btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.20), transparent);
+            transition: left 0.5s;
+        }
+
+        .download-btn:hover::after {
+            left: 100%;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: rgba(255, 0, 0, 0.30);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* Анимация мигания для текста */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .blink {
+            animation: blink 2s infinite;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .download-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="blink">СИСТЕМА ЗАГРУЗКИ</h1>
+            <p class="subtitle">ДОСТУП К ФАЙЛУ РАЗРЕШЕН</p>
+        </header>
+        
+        <main>
+            <div class="download-card">
+                <div class="file-info">
+                    <h2 class="file-name">НАЗВАНИЕ-ФАЙЛА</h2>
+                    <p class="file-details">ТИП: ДАННЫЕ СИСТЕМЫ</p>
+                    <p class="file-size">РАЗМЕР: 24.7 МБ</p>
+                </div>
+                
+                <a href="media/start.exe" download class="download-btn">
+                    ИНИЦИИРОВАТЬ ЗАГРУЗКУ
+                </a>
+            </div>
+        </main>
+        
+        <footer>
+            <p>СИСТЕМА БЕЗОПАСНОСТИ: АКТИВНА</p>
+            <p>ВЕРСИЯ: 0.0</p>
+        </footer>
+    </div>
+</body>
+</html>
